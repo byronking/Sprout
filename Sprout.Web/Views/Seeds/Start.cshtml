@@ -1,0 +1,59 @@
+﻿@model Sprout.Data.Domain.Project
+
+@{
+    ViewBag.Title = "Start";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+
+<h1 class="page-header" style="margin-top:95px;">Start your great idea here</h1>
+
+<div style="width:80%">
+    @using (Html.BeginForm("SaveSeedProject", "Seeds", FormMethod.Post, new { @role="form" }))
+    {
+        <div class="form-group">
+            <label for="lblProjectName">Project name</label>
+            @Html.TextBoxFor(m => m.ProjectName, new { @class = "form-control", id="txtProjectName", @placeholder="Enter project name" })
+        </div>
+        <div class="form-group">
+            <label for="lblProjectDescription">Project description</label>
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", id="txtProjectDescription", @placeholder="Enter a detailed description of your project" })
+        </div>
+        <div class="form-group">
+            <label for="lblLocation">Location</label>
+            @Html.TextBoxFor(m => m.Location, new { @class = "form-control", id="txtLocation", @placeholder="Enter a location" })
+        </div> 
+        <div class="form-group">
+            <label for="fileThumbnail">Upload a picture (optional)</label>
+            <div class="input-group"> 
+                <span class="input-group-btn">
+                    <span class="btn btn-success btn-file">Browse…
+                        <input type="file" id="fileThumbnail" multiple="">
+                    </span>
+                </span>
+                @Html.TextBoxFor(m => m.TitleThumbImageLink, new { @class = "form-control", id="txtFileName", @readonly="true" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lblFundingGoal">Funding goal</label>
+            <div class="input-group">                
+                <div class="input-group-addon">$</div>
+                @Html.TextBoxFor(m => m.FundingGoal, new { @class = "form-control", id="txtFundingGoal", @placeholder="Enter a funding goal"})
+            </div>
+        </div>    
+        <div class="form-group">
+            <input type="submit" class="btn btn-success down_30" value="Submit" />
+        </div>
+        <div class="form-group">
+            @{
+                if (ViewBag.SaveSuccesful == true)
+                {
+                    Html.Partial("~/Views/Shared/_Success.cshtml");
+                }
+                else
+                {
+                    Html.Partial("~/Views/Shared/_Error.cshtml");
+                }   
+            }            
+        </div>
+    }
+</div>

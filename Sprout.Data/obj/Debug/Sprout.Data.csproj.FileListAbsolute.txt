@@ -1,0 +1,4 @@
+C:\Projects\Sprout\Sprout.Data\bin\Debug\Sprout.Data.dll
+C:\Projects\Sprout\Sprout.Data\bin\Debug\Sprout.Data.pdb
+C:\Projects\Sprout\Sprout.Data\obj\Debug\Sprout.Data.dll
+C:\Projects\Sprout\Sprout.Data\obj\Debug\Sprout.Data.pdb

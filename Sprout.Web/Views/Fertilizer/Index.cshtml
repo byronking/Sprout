@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+
+<h1 class="page-header" style="margin-top:95px;">Fertilizer</h1>
+<p class="lead">
+    This is where ideas go to be funded. Individuals or groups may fund an idea and those who fund capture a portion of the ongoing revenue. 
+    The ideas in this channel must provide basic business plan data for potential investors to review. Videos appreciated. 
+</p>
+
+<div class="container down_30">
+    <div class="row">
+        <p class="lead">Explore the current projects in the fertilizer stage</p>
+        <div class="col-md-12">
+            @{
+                for (int i=1; i<=10; i++)
+                {
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img alt="100%x200" data-src="holder.js/100%x200" style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDIiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjEyMSIgeT0iMTAwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjE1cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MjQyeDIwMDwvdGV4dD48L3N2Zz4=">
+                            <div class="caption">
+                                <h3>Thumbnail label</h3>
+                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                <p>
+                                    <a class="btn btn-primary" role="button" href="#">Button</a>
+                                    <a class="btn btn-default" role="button" href="#">Button</a>
+                                </p>
+                            </div>                    
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

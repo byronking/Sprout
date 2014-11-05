@@ -1,0 +1,116 @@
+﻿body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+/* Styles for the footer
+-----------------------------------------------------------*/
+
+#mega-footer-wrap {
+    border-top: 1px solid #2bde73;
+}
+
+.bg-gray-dark {
+    /*background-color: #0f2105;*/
+    background-color: #5a5a5a;
+}
+
+#mega-footer-bottom {
+    margin-left: auto;
+    margin-right: auto;
+    color: #2bde73;
+    border-top: 1px solid #d9d9de;
+    padding: 20px;
+    width:80%;
+}
+
+/* File upload styles
+-----------------------------------------------------------*/
+    .btn-file {
+    position: relative;
+    overflow: hidden;
+    }
+
+    .btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+    }
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+.down_30 {
+    margin-top:30px;
+}
+
+.left_60 {
+    margin-left:60px;
+}
+
+.left_100 {
+    margin-left:100px;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
