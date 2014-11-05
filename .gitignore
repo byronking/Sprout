@@ -5,7 +5,7 @@ ehthumbs.db
 # Folder config file
 Desktop.ini
 
-obj/**/*
+Sprout.Web/obj/**/*
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
@@ -43,3 +43,5 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+*.suo
