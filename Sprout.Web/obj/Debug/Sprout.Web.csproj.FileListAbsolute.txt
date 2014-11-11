@@ -31,3 +31,4 @@ C:\Projects\Sprout\Sprout.Web\bin\System.Web.Http.xml
 C:\Projects\Sprout\Sprout.Web\bin\System.Web.Http.WebHost.xml
 C:\Projects\Sprout\Sprout.Web\bin\Sprout.Data.dll
 C:\Projects\Sprout\Sprout.Web\bin\Sprout.Data.pdb
+C:\Projects\Sprout\Sprout.Web\bin\System.Net.Http.dll

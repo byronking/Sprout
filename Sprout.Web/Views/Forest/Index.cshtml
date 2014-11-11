@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Forest";
     Layout = "~/Views/Shared/_PageLayout.cshtml";
 }
 
@@ -14,18 +14,27 @@
         <p class="lead">Explore the current projects in the forest marketplace</p>
         <div class="col-md-12">
             @{
-                for (int i=1; i<=10; i++)
+                for (int i=1; i<=5; i++)
                 {
                     <div class="col-md-3">
                         <div class="thumbnail">
                             <img alt="100%x200" data-src="holder.js/100%x200" style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDIiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjEyMSIgeT0iMTAwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjE1cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MjQyeDIwMDwvdGV4dD48L3N2Zz4=">
                             <div class="caption">
-                                <h3>Thumbnail label</h3>
+                                <h3>Project label</h3>
+                                <h5>by admin</h5>
                                 <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                <p>
-                                    <a class="btn btn-primary" role="button" href="#">Button</a>
-                                    <a class="btn btn-default" role="button" href="#">Button</a>
-                                </p>
+                                <p><span class="glyphicon glyphicon-map-marker"></span> Baltimore, MD</p>                                
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"></div>
+                                </div>
+                                <div> 
+                                    <div class="project-stats no-margin no-wrap">
+                                        <div class="inline-block"><strong class="block">20%</strong> <span>funded</span></div>
+                                        <div class="inline-block"><strong class="block">$2000</strong> <span>pledged</span></div>
+                                        <div class="inline-block"><strong class="block">30</strong> <span>days to go</span></div>
+                                    </div>
+                                </div>
+                                <p><a class="btn btn-primary btn-xs" role="button" href="#">Learn more about this project</a></p>                                
                             </div>                    
                         </div>
                     </div>

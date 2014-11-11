@@ -2,6 +2,8 @@
 using Sprout.Data.Repository;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -23,16 +25,35 @@ namespace Sprout.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveSeedProject(Project model)
+        public ActionResult SaveSeedProject(HttpPostedFileBase fileUpload, Project model)
         {
-            var testy = model;
             model.Active = true;
             model.OriginationDate = DateTime.Now;
             model.StageId = Convert.ToInt16(ProjectStages.Seeds);
 
-            var repository = new SeedsRepository();
-            var saveSuccessful = repository.SaveSeedsProject(model);
-            ViewBag.SaveSuccesful = saveSuccessful;
+            var errors = ModelState.Where(v => v.Value.Errors.Any());
+
+            if (ModelState.IsValid)
+            {
+                // Save the image file
+                var fileName = Path.GetFileName(model.TitleThumbImageLink);
+                var dir = ConfigurationManager.AppSettings["ProjectImagesDirectory"].ToString();
+
+                var storageDir = dir + Path.DirectorySeparatorChar + fileName;
+
+                if (!System.IO.File.Exists(fileName))
+                {
+                    fileUpload.SaveAs(dir + Path.DirectorySeparatorChar + fileName);
+                }
+
+                var repository = new SeedsRepository();
+                var saveSuccessful = repository.SaveSeedsProject(model);
+                ViewBag.SaveSuccesful = saveSuccessful;
+            }
+            else
+            {
+                // Do something
+            }            
 
             return View("~/Views/Seeds/Start.cshtml", model);
         }

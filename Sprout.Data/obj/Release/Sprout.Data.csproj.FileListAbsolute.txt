@@ -1,0 +1,5 @@
+C:\Projects\Sprout\Sprout.Data\bin\Release\Sprout.Data.dll
+C:\Projects\Sprout\Sprout.Data\bin\Release\Sprout.Data.pdb
+C:\Projects\Sprout\Sprout.Data\obj\Release\Sprout.Data.csprojResolveAssemblyReference.cache
+C:\Projects\Sprout\Sprout.Data\obj\Release\Sprout.Data.dll
+C:\Projects\Sprout\Sprout.Data\obj\Release\Sprout.Data.pdb

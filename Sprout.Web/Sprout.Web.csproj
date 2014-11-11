@@ -74,6 +74,7 @@
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
@@ -129,6 +130,7 @@
     <Compile Include="Controllers\FertilizerController.cs" />
     <Compile Include="Controllers\ForestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\SeedsController.cs" />
     <Compile Include="Controllers\SproutsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -146,6 +148,7 @@
     <Content Include="Content\images\crowd.jpg" />
     <Content Include="Content\images\crowd2.jpg" />
     <Content Include="Content\images\forest.jpg" />
+    <Content Include="Content\images\project_pictures\8_m.jpg" />
     <Content Include="Content\images\seeds.jpg" />
     <Content Include="Content\images\seeds_blurred.jpg" />
     <Content Include="Content\images\sprouts.jpg" />
@@ -215,6 +218,7 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Properties\PublishProfiles\Sprout PROD.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\default.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -232,7 +236,9 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -254,6 +260,7 @@
     <Content Include="Views\Forest\Index.cshtml" />
     <Content Include="Views\Shared\_Success.cshtml" />
     <Content Include="Views\Shared\_Error.cshtml" />
+    <Content Include="Views\Projects\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
