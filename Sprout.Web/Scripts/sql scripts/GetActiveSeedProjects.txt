@@ -1,0 +1,21 @@
+﻿use Sprout
+go
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE GetActiveSeedProjects
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    select project_id, project_name, project_originator_id, title_thumb_image_link, summary, description, location, 
+		project_stage_id, active, origination_date, funding_goal, percentage_funded, amount_funded, last_pledge_date 
+	from projects
+END
+GO

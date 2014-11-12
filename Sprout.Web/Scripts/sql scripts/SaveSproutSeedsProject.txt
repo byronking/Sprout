@@ -1,0 +1,58 @@
+﻿USE [Sprout]
+GO
+/****** Object:  StoredProcedure [dbo].[SaveSproutSeedsProject]    Script Date: 11/12/14 10:56:27 AM ******/
+SET ANSI_NULLS OFF
+GO
+SET QUOTED_IDENTIFIER OFF
+GO
+
+
+ALTER PROCEDURE [dbo].[SaveSproutSeedsProject]
+
+@project_name varchar(50), 
+@project_originator_id int, 
+@title_thumb_image_link varchar(250), 
+@summary varchar(300), 
+@description varchar(2000), 
+@location varchar(100),
+@project_stage_id int, 
+@active bit, 
+@origination_date smalldatetime, 
+@funding_goal money, 
+@percentage_funded decimal(18,0), 
+@amount_funded money,
+@stage_id int, 
+@project_id int, 
+@stage_begin_date smalldatetime
+
+as 
+
+begin
+
+set nocount on;
+declare @ps_id int 
+declare @id int 
+
+	begin
+
+	select * from ProjectStages
+
+	insert into ProjectStages (stage_id, project_id, stage_begin_date) values (@stage_id, @project_id, @stage_begin_date);
+
+	set @ps_id = SCOPE_IDENTITY();
+
+	insert into Projects (project_name, project_originator_id, title_thumb_image_link, summary, description, location, project_stage_id, 
+		active, origination_date, funding_goal, percentage_funded, amount_funded) 
+		values(@project_name, @project_originator_id, @title_thumb_image_link, @summary, @description, @location, @project_stage_id, 
+		@active, @origination_date, @funding_goal, @percentage_funded, @amount_funded);
+	
+	set @id = SCOPE_IDENTITY();
+
+	update ProjectStages set project_id = @id where project_stage_id = @ps_id;
+
+	return (@id);
+
+	end
+	
+end
+
