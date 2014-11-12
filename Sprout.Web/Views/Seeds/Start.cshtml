@@ -1,7 +1,7 @@
 ﻿@model Sprout.Data.Domain.Project
 
 @{
-    ViewBag.Title = "Start";
+    ViewBag.Title = "Start your project";
     Layout = "~/Views/Shared/_PageLayout.cshtml";
 }
 
@@ -16,8 +16,15 @@
             <span class="text-error">@Html.ValidationMessageFor(m => m.ProjectName)</span>
         </div>
         <div class="form-group">
+            <label for="lblProjectSummary">Project summary *</label>
+            @Html.TextAreaFor(m => m.Summary, new { @class = "form-control", id="txtProjectSummary", placeholder="Enter a short summary of your project", maxlength="300" })
+            <div id="charNumSummary"></div>
+            <span class="text-error">@Html.ValidationMessageFor(m => m.Summary)</span>
+        </div>
+        <div class="form-group">
             <label for="lblProjectDescription">Project description *</label>
-            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", id="txtProjectDescription", @placeholder="Enter a detailed description of your project" })
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", id="txtProjectDescription", placeholder="Enter a detailed description of your project", maxlength="2000" })
+            <div id="charNumDescription"></div>
             <span class="text-error">@Html.ValidationMessageFor(m => m.Description)</span>
         </div>
         <div class="form-group">

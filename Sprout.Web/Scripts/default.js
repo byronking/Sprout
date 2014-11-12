@@ -7,4 +7,28 @@
 
         $('#txtFileName').val(label);
     });
+
+    $("#txtProjectSummary").keyup(function () {
+        var max = 300;
+        var len = $(this).val().length;
+        //alert('length: ' + len);
+        if (len >= max) {
+            $("#charNumSummary").text(' you have reached the limit');
+        } else {
+            var char = max - len;
+            $("#charNumSummary").text(char + ' characters left');
+        }
+    });
+
+    $("#txtProjectDescription").keyup(function () {
+        var max = 2000;
+        var len = $(this).val().length;
+        //alert('length: ' + len);
+        if (len >= max) {
+            $("#charNumDescription").text(' you have reached the limit');
+        } else {
+            var char = max - len;
+            $("#charNumDescription").text(char + ' characters left');
+        }
+    });
 });

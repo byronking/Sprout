@@ -46,9 +46,13 @@ namespace Sprout.Web.Controllers
                     fileUpload.SaveAs(dir + Path.DirectorySeparatorChar + fileName);
                 }
 
+                model.ProjectOriginatorId = 1;
+                model.StageId = 1;
+                model.OriginationDate = DateTime.Now;
+
                 var repository = new SeedsRepository();
-                var saveSuccessful = repository.SaveSeedsProject(model);
-                ViewBag.SaveSuccesful = saveSuccessful;
+                var saveResults = repository.SaveSeedsProject(model);
+                ViewBag.SaveSuccesful = saveResults.SaveSuccessful;
             }
             else
             {
