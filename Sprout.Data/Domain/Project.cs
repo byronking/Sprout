@@ -14,6 +14,7 @@ namespace Sprout.Data.Domain
         [Required(ErrorMessage="Please enter a name for your project")]
         public string ProjectName { get; set; }
         public int ProjectOriginatorId { get; set; }
+        public string ProjectOriginator { get; set; }
         public string TitleThumbImageLink { get; set; }
 
         [Required(ErrorMessage = "Please enter a short summary for your project")]

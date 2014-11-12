@@ -45,8 +45,10 @@
     <Compile Include="Domain\Project.cs" />
     <Compile Include="Domain\ProjectSaveResults.cs" />
     <Compile Include="Domain\ProjectStages.cs" />
+    <Compile Include="Domain\SproutUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\SeedsRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

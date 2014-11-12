@@ -14,8 +14,11 @@ namespace Sprout.Web.Controllers
     {
         public ActionResult Index()
         {
+            var repository = new SeedsRepository();
+            var activeSeedProjects = repository.GetActiveSeedProjects();
+
             ViewBag.Seeds = "active";
-            return View();
+            return View(activeSeedProjects);
         }
 
         public ActionResult Start()

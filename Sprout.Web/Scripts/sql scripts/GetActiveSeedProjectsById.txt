@@ -1,12 +1,12 @@
-﻿use Sprout
-go
-
+﻿USE [Sprout]
+GO
+/****** Object:  StoredProcedure [dbo].[GetActiveSeedProjectsById]    Script Date: 11/12/14 4:00:37 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE GetActiveSeedProjectsById
+ALTER PROCEDURE [dbo].[GetActiveSeedProjectsById]
 
 @project_id int
 
@@ -16,8 +16,7 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-    select project_id, project_name, project_originator_id, title_thumb_image_link, summary, description, location, 
-		project_stage_id, active, origination_date, funding_goal, percentage_funded, amount_funded, last_pledge_date 
-	from projects where project_id = @project_id
+    select project_id, project_name, project_originator_id, first_name + ' ' + last_name as project_originator, title_thumb_image_link, 
+		summary, description, location, project_stage_id, p.active, origination_date, funding_goal, percentage_funded, amount_funded, 
+		last_pledge_date from projects p join SproutUsers s on p.project_originator_id = s.sprout_user_id where project_id = @project_id
 END
-GO

@@ -1,5 +1,7 @@
-﻿@{
-    ViewBag.Title = "Amazing project idea ";
+﻿@model Sprout.Data.Domain.Project
+
+@{
+    ViewBag.Title = Model.ProjectName;
     Layout = "~/Views/Shared/_PageLayout.cshtml";
 }
 
@@ -8,22 +10,16 @@
 <div class="jumbotron" style="margin-top:105px; background-color:#F7FAFA">
     <div class="container">
         <div class="row" style="margin-bottom:30px">
-            <h1 class="text-center">@ViewBag.Title <br /><small>by joe</small></h1>
+            <h1 class="text-center">@ViewBag.Title <br /><small>by @Model.ProjectOriginator</small></h1>
         </div>
         <div class="row">
             <div class="col-md-8">
                 <div class="img-thumbnail">
-                    <img alt="project pic" style="height:220px; display:block;" src="~/Content/images/project_pictures/8_m.jpg"><p />
+                    <img alt="project pic" style="height:220px; display:block;" src="~/Content/images/project_pictures/@Model.TitleThumbImageLink"><p />
                 </div>
-                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. 
-                    Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p class="lead">@Model.Summary</p>
 
-                @*<p class="lead">
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis 
-                    et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni 
-                    dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non 
-                    numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-                </p>*@
+                <p class="lead">@Model.Description</p>
             </div>
             <div class="col-md-4">
                 <div class="panel panel-success">
@@ -32,15 +28,15 @@
                     </div>
                     <div class="panel-body">
                         <div class="project-stats no-margin no-wrap">
-                            <div class="lead"><strong class="block">20%</strong> <span>funded</span></div><p />
-                            <div class="lead"><strong class="block">$2000</strong> <span>pledged</span></div><p />
+                            <div class="lead"><strong class="block">@Model.PercentageFunded%</strong> <span>funded</span></div><p />
+                            <div class="lead"><strong class="block">$@Model.AmountFunded</strong> <span>pledged</span></div><p />
                             <div class="lead"><strong class="block">30</strong> <span>days to go</span></div>
                         </div>
 
                         <div class="text-center">
                             <div class="btn btn-success btn-lg">Back this project</div><p />
                         </div>
-                        <div>This project will only be funded if $2000 is pledged by December 6th, 2014.</div>
+                        <div>This project will only be funded if $@Model.FundingGoal is pledged by December 6th, 2014.</div>
                     </div>
                 </div>
                 
@@ -51,13 +47,13 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <img alt="140x140" class="img-circle" data-src="holder.js/140x140" style="width: 140px; height: 140px;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQzLjUiIHk9IjcwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTQweDE0MDwvdGV4dD48L2c+PC9zdmc+" data-holder-rendered="true">
+                                <img alt="140x140" class="img-circle" data-src="holder.js/140x140" style="width: 140px; height: 140px;" src="~/Content/images/project_pictures/@Model.TitleThumbImageLink" data-holder-rendered="true">
                             </div>
                             <div class="col-md-6">
                                 <br/>
                                     <strong>Project by</strong><br /><br />
-                                    <strong>joe</strong><br />
-                                    <strong>Baltimore, MD</strong><br />
+                                    <strong>@Model.ProjectOriginator</strong><br />
+                                    <strong>@Model.Location</strong><br />
                             </div>
                         </div>
                     </div>

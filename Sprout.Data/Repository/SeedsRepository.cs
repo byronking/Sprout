@@ -21,7 +21,45 @@ namespace Sprout.Data.Repository
                 using (SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["SproutDatabase"]))
                 using (SqlCommand cmd = new SqlCommand("GetActiveSeedProjects", conn))
                 {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection.Open();
 
+                    var reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        DateTime? lastPledgeDate = null;
+
+                        if (reader["last_pledge_date"] is DBNull)
+                        {
+                            lastPledgeDate = null;
+                        }
+                        else
+                        {
+                            lastPledgeDate = Convert.ToDateTime(reader["last_pledge_date"]);
+                        }
+
+                        var project = new Project()
+                        {
+                            Active = Convert.ToBoolean(reader["active"]),
+                            AmountFunded = Math.Round(Convert.ToDecimal(reader["amount_funded"]), 2),
+                            Description = reader["description"].ToString(),
+                            FundingGoal = Math.Round(Convert.ToDecimal(reader["funding_goal"]), 2),
+                            LastPledgeDate = lastPledgeDate,
+                            Location = reader["location"].ToString(),
+                            OriginationDate = Convert.ToDateTime(reader["origination_date"]),
+                            PercentageFunded = Math.Round(Convert.ToDecimal(reader["percentage_funded"]), 2),
+                            ProjectId = Convert.ToInt32(reader["project_id"]),
+                            ProjectName = reader["project_name"].ToString(),
+                            ProjectOriginator = reader["project_originator"].ToString(),
+                            ProjectOriginatorId = Convert.ToInt32(reader["project_originator_id"]),
+                            StageId = Convert.ToInt32(reader["project_stage_id"]),
+                            Summary = reader["summary"].ToString(),
+                            TitleThumbImageLink = reader["title_thumb_image_link"].ToString()
+                        };
+
+                        activeSeedProjects.Add(project);
+                    }
                 }
             }
             catch (Exception ex)
@@ -30,6 +68,63 @@ namespace Sprout.Data.Repository
             }
 
             return activeSeedProjects;
+        }
+
+        public Project GetActiveSeedProjectById(int project_id)
+        {
+            var project = new Project();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["SproutDatabase"]))
+                using (SqlCommand cmd = new SqlCommand("GetActiveSeedProjectsById", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@project_id", SqlDbType.Int).Value = project_id;
+                    cmd.Connection.Open();
+
+                    var reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        DateTime? lastPledgeDate = null;
+
+                        if (reader["last_pledge_date"] is DBNull)
+                        {
+                            lastPledgeDate = null;
+                        }
+                        else
+                        {
+                            lastPledgeDate = Convert.ToDateTime(reader["last_pledge_date"]);
+                        }
+
+                        project = new Project()
+                        {
+                            Active = Convert.ToBoolean(reader["active"]),
+                            AmountFunded = Math.Round(Convert.ToDecimal(reader["amount_funded"]), 2),
+                            Description = reader["description"].ToString(),
+                            FundingGoal = Math.Round(Convert.ToDecimal(reader["funding_goal"]), 2),
+                            LastPledgeDate = lastPledgeDate,
+                            Location = reader["location"].ToString(),
+                            OriginationDate = Convert.ToDateTime(reader["origination_date"]),
+                            PercentageFunded = Math.Round(Convert.ToDecimal(reader["percentage_funded"]), 2),
+                            ProjectId = Convert.ToInt32(reader["project_id"]),
+                            ProjectName = reader["project_name"].ToString(),
+                            ProjectOriginator = reader["project_originator"].ToString(),
+                            ProjectOriginatorId = Convert.ToInt32(reader["project_originator_id"]),
+                            StageId = Convert.ToInt32(reader["project_stage_id"]),
+                            Summary = reader["summary"].ToString(),
+                            TitleThumbImageLink = reader["title_thumb_image_link"].ToString()
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+            }
+
+            return project;
         }
 
         public ProjectSaveResults SaveSeedsProject(Project project)
