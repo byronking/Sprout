@@ -38,15 +38,22 @@ namespace Sprout.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                // Save the image file
-                var fileName = Path.GetFileName(model.TitleThumbImageLink);
-                var dir = ConfigurationManager.AppSettings["ProjectImagesDirectory"].ToString();
-
-                var storageDir = dir + Path.DirectorySeparatorChar + fileName;
-
-                if (!System.IO.File.Exists(fileName))
+                if (fileUpload != null)
                 {
-                    fileUpload.SaveAs(dir + Path.DirectorySeparatorChar + fileName);
+                    // Save the image file
+                    var fileName = Path.GetFileName(model.TitleThumbImageLink);
+                    var dir = ConfigurationManager.AppSettings["ProjectImagesDirectory"].ToString();
+
+                    var storageDir = dir + Path.DirectorySeparatorChar + fileName;
+
+                    if (!System.IO.File.Exists(fileName))
+                    {
+                        fileUpload.SaveAs(dir + Path.DirectorySeparatorChar + fileName);
+                    }
+                }
+                else
+                {
+                    model.TitleThumbImageLink = "Sprout_Logo.gif";
                 }
 
                 model.ProjectOriginatorId = 1;
